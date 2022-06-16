@@ -13,6 +13,22 @@ reverse(""); // ""
 ***********************************************************************/
 
 // your code here
+// let reverse = function (str) {
+//   if(str.length === 0) {
+//     return '';
+//   }
+//   return [str[str.length - 1], ...reverse(str.slice(0, str.length - 1))].join('');
+// }
+let reverse = function (str) {
+  let newStr = '';
+  if(str.length === newStr.length) {
+    return '';
+  }
+  return newStr += str[str.length - 1] + reverse(str.slice(0 , str.length - 1));
+}
+
+
+console.log(reverse("house")); // "esuoh"
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
