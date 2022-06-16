@@ -11,7 +11,29 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 ***********************************************************************/
 
 // your code here
-  
+let flatten = (arr) => {
+  if(arr.length === 0) {
+    return [];
+  }
+  if(Array.isArray(arr[0][0])) {
+    if(arr[0][0].length === 0) {
+      return [];
+    }
+    if(arr[0][0][0].length === 0) {
+      return [];
+    }
+    return [arr[0][0][0], ...flatten(arr[0][0].slice(1)), ...flatten(arr.slice(1))];
+  }
+  if(Array.isArray(arr[0])) {
+    if(arr[0].length === 0){
+      return [];
+    }
+    return [arr[0][0], ...flatten(arr[0].slice(1)), ...flatten(arr.slice(1))]
+  }
+  return [arr[0], ...flatten(arr.slice(1))];
+}
+
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = flatten;
