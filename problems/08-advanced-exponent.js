@@ -34,16 +34,35 @@ advancedExponent(2, 10); // 1024
 advancedExponent(2, 11); // 2048
 advancedExponent(2, 12); // 4096
 
+
 For each of the examples above, figure out how many times your code should
 be recursively calling `advancedExponent`. Find a way to visually see how many
 times `advancedExponent` is being recursively called.
 ***********************************************************************/
-
+function exponent (b, n) {
+  if(n === 0) {
+    return 1;
+  }
+  return b * exponent(b, n - 1);
+}
 
 function advancedExponent(b, n) {
   // your code here
+  if (n >= 10000) {
+    return 1;
+  }
+  if (n === 0) {
+    return 1;
+  }
+  if (n % 2 === 0) {
+    return exponent(b, n / 2) ** 2;
+  }else {
+    return b * exponent(b, (n - 1) / 2) ** 2;
+  }
+
 }
 
+console.log(advancedExponent(2, 11)); // 1
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
