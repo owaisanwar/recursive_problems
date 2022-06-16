@@ -18,13 +18,21 @@ fibonacci(3); // 2
 fibonacci(4); // 3
 fibonacci(10); // 55
 ***********************************************************************/
-
 // your code here
-  
+
+
+let fibonacci = function (n) {
+  if(n == 0) return 0;
+  if(n === 1) return 1;
+  return fibonacci(n - 2) + fibonacci(n - 1);
+}
+
+console.log(fibonacci(4)); // 1
+
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = fibonacci;
 } catch (e) {
   module.exports = null;
 }
-  
